@@ -1,9 +1,11 @@
 id,description,status,deadline
-1,Reunião com equipe de marketing,Concluída,03/04/2025
+1,Reunião com equipe de marketing,Concluída,06/04/2025
 2,Finalizar relatório trimestral,Iniciada,08/04/2025
-3,Preparar apresentação para diretoria,Pendente,10/04/2025
-4,Revisar metas do projeto X,Cancelada,Semana que vem
-5,Ligar para cliente sobre contrato,Iniciada,Hoje
+3,Preparar apresentação para diretoria,Pendente,15/04/2025
+4,Revisar metas do projeto X,Cancelada,20/04/2025
+5,Ligar para cliente sobre contrato,Iniciada,25/04/2025
 6,Atualizar planilha de despesas,Concluída,01/04/2025
-7,Enviar proposta comercial,Pendente,Amanhã
-8,Teste,Pendente,09/08/2025
+7,Enviar proposta comercial,Pendente,30/04/2025
+8,Revisar orçamento anual,Pendente,10/05/2025
+9,Planejar evento corporativo,Iniciada,15/05/2025
+10,Realizar treinamento interno,Concluída,20/05/2025

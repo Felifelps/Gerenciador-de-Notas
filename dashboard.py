@@ -1,6 +1,6 @@
 """Contém funções que geram um relatório com os dados do csv."""
 
-from constants import ATTRS, ATTRS_OPTIONS
+from constants import ATTRS
 from utils import (
     clear,
     show_table,

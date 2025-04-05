@@ -1,7 +1,12 @@
 """Arquivo com funções diversas."""
 
 import os
-from constants import MAX_TABLE_VALUE_LENGTH
+from constants import (
+    MAX_TABLE_VALUE_LENGTH,
+    DATE_FORMAT,
+    DATE_FORMAT_LABEL
+)
+from datetime import datetime
 
 
 def clear():
@@ -25,8 +30,8 @@ def press_enter_to_continue(message=""):
 
 
 def get_option(options, prompt="Digite o número da opção: "):
-    """Lista um conjunto de opções e retorna a escolhida pelo usuário.\n
-    Também lida com opções inválidas."""
+    """Lista um conjunto de opções e retorna a escolhida 
+    pelo usuário e também lida com opções inválidas."""
     for number, option in options.items():
         print(f"{number}.{option}")
 
@@ -47,13 +52,19 @@ def is_description_valid(description):
 def is_deadline_valid(deadline):
     """Checa se um prazo é válido."""
     if not deadline:
-        return False, "O prazo não pode ser vazia"
+        return False, "O prazo não pode ser vazio"
+    try:
+        datetime_obj = datetime.strptime(deadline, DATE_FORMAT)
+    except ValueError:
+        return False, f"O prazo deve ser no formato {DATE_FORMAT_LABEL}"
+    if datetime_obj < datetime.today():
+        return False, f"O prazo não pode ser anterior à data atual"
     return True, None
 
-def show_table(DATA, headers, filter_attr="", filter_key="", show_n_of_results=True):
+def show_table(DATA, headers, filter_func=lambda _: True, show_n_of_results=True):
     """
     Exibe uma lista de dicionários como uma tabela, e mapeia atributos como headers.
-    Permite filtrar um atributo (filter_attr) com uma string de busca (filter_key).
+    Permite adicionar uma função de filtragem.
     """
     n_of_results = 0
 
@@ -62,7 +73,7 @@ def show_table(DATA, headers, filter_attr="", filter_key="", show_n_of_results=T
 
     # Armazena os dados por coluna, filtra e pega dados de formatação
     for object in DATA:
-        if filter_attr and filter_key.lower() not in object[filter_attr].lower():
+        if not filter_func(object):
             continue
 
         for key in headers:

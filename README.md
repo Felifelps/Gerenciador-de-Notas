@@ -1,44 +1,62 @@
-# Gerenciador de Notas
+# Gestão de Tarefas
 
-## Descrição do Projeto
-Gerenciador de Notas é um sistema simples e prático para controle de tarefas. Esse aplicativo permite que os usuários cuidem de suas atividades organizando-as de maneira eficiente. Cada atividade pode ser categorizada conforme seu status - 'Concluída', 'Pendente', 'Iniciada', 'Cancelada'. Ademais, cada tarefa contém um prazo de conclusão para auxiliar no gerenciamento do tempo.
+Este é um projeto de gerenciamento de tarefas desenvolvido em Python. Ele permite criar, listar, buscar, atualizar, remover e gerar relatórios de tarefas armazenadas em um arquivo CSV.
 
-## Estrutura dos Arquivos
-O projeto consiste nos seguintes arquivos:
+## Funcionalidades
 
-1. [constants.py](constants.py): Armazena as constantes usadas no projeto, como opções de status para as tarefas.
-2. [crud_task.py](crud_task.py): Contém funções para criação, busca, atualização e remoção de tarefas.
-3. [dashboard.py](dashboard.py): Possui uma função para gerar um relatório com os dados de todas as tarefas.
-4. [data.py](data.py): Contém funções para carregamento e modificação do arquivo CSV que armazena as tarefas.
-5. [list_tasks.py](list_tasks.py): Contém funções para listagem e filtragem das tarefas.
-6. [main.py](main.py): É o arquivo principal que coordena todas as funcionalidades do projeto.
-7. [utils.py](utils.py): Inclui funções diversas auxiliares para o projeto.
+- **Listar Tarefas**: Exibe todas as tarefas com opções de filtragem.
+- **Buscar Tarefa**: Permite buscar uma tarefa específica pelo ID.
+- **Inserir Tarefa**: Adiciona uma nova tarefa ao sistema.
+- **Atualizar Tarefa**: Edita os dados de uma tarefa existente.
+- **Remover Tarefa**: Exclui uma tarefa do sistema.
+- **Relatório**: Gera um relatório com o status das tarefas (Pendentes, Iniciadas, Concluídas, Canceladas).
 
-## Instruções de Configuração e Execução
-Siga os passos a seguir para configurar e iniciar o programa:
+## Estrutura do Projeto
 
-1. Clone o repositório com o comando: ```git clone https://github.com/Felifelps/Gerenciador-de-Notas```
-2. Vá para o diretório do projeto: ```cd Gerenciador-de-Notas```
-3. Para executar o programa, use o comando: ```python main.py```
+- **`main.py`**: Arquivo principal que inicializa o programa.
+- **`constants.py`**: Contém constantes usadas em todo o projeto.
+- **`crud_task.py`**: Funções para criar, buscar, atualizar e remover tarefas.
+- **`list_tasks.py`**: Funções para listar e filtrar tarefas.
+- **`dashboard.py`**: Funções para gerar relatórios.
+- **`data.py`**: Funções para carregar e salvar dados no arquivo CSV.
+- **`utils.py`**: Funções auxiliares como validações e exibição de tabelas.
+- **`data.csv`**: Arquivo que armazena as tarefas.
 
-## Exemplos de Uso:
-Com o Gerenciador de Notas, você poderá:
+## Como Usar
 
-- Listar todas as tarefas
-- Buscar uma tarefa específica por ID
-- Inserir uma nova tarefa
-- Atualizar os detalhes de uma tarefa existente
-- Remover uma tarefa
-- Gerar um relatório com a situação atual das suas tarefas
+1. Certifique-se de ter o Python 3 instalado.
+2. Clone ou baixe este repositório.
+3. Execute o arquivo `main.py` para iniciar o programa:
+   ```bash
+   python main.py
+   ```
+4. Siga as instruções no terminal para gerenciar suas tarefas.
+
+## Formato do Arquivo CSV
+
+O arquivo `data.csv` armazena as tarefas no seguinte formato:
+
+```
+id,description,status,deadline
+1,Reunião com equipe de marketing,Concluída,06/04/2025
+2,Finalizar relatório trimestral,Iniciada,08/04/2025
+...
+```
+
+- **`id`**: Identificador único da tarefa.
+- **`description`**: Descrição da tarefa.
+- **`status`**: Status da tarefa (Pendente, Iniciada, Concluída, Cancelada).
+- **`deadline`**: Prazo da tarefa no formato `DD/MM/AAAA`.
 
 ## Requisitos
-Para rodar este aplicativo, é necessário:
 
-- Python 3.8 ou superior
-- Um terminal para execução (como cmd, Powershell, Terminal etc.) 
+- Python 3.6 ou superior.
 
-## Contribuição
-Qualquer contribuição para esta aplicação será grandemente apreciada. Se você tiver uma característica que gostaria de adicionar ou um bug que gostaria de corrigir, o melhor método é fazer um Pull Request.
+## Autor
+
+- **Felipe dos Santos Ferreira**
+- Turma: CC2
 
 ## Licença
-Este projeto é licenciado sob a licença MIT.
+
+Este projeto é apenas para fins educacionais e não possui uma licença específica.
