@@ -31,7 +31,7 @@ def press_enter_to_continue(message=""):
 
 def get_option(options, prompt="Digite o número da opção: "):
     """Lista um conjunto de opções e retorna a escolhida 
-    pelo usuário e também lida com opções inválidas."""
+    pelo usuário. Também lida com opções inválidas."""
     for number, option in options.items():
         print(f"{number}.{option}")
 

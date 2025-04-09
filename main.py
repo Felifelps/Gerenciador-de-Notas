@@ -14,7 +14,7 @@ from crud_task import (
 from dashboard import show_dashboard
 from data import load_data, save_data
 from list_tasks import list_tasks
-from utils import *
+from utils import clear, get_option
 
 
 def main():

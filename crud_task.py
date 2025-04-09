@@ -1,6 +1,6 @@
 """Contém funções relacionadas à execução de ações em uma única tarefa."""
 
-from constants import *
+from constants import ATTRS, ATTRS_OPTIONS
 from data import save_data
 from utils import *
 

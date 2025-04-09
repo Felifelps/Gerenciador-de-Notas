@@ -1,7 +1,7 @@
 """Contém funções para listagem e filtragem das tarefas"""
 
 from datetime import datetime
-from constants import *
+from constants import ATTRS, DATE_FORMAT, DATE_FORMAT_LABEL
 from utils import (
     clear,
     show_table,
