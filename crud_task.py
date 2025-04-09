@@ -2,7 +2,14 @@
 
 from constants import ATTRS, ATTRS_OPTIONS
 from data import save_data
-from utils import *
+from utils import (
+    clear,
+    get_option,
+    press_enter_to_continue,
+    multiline_input,
+    is_description_valid,
+    is_deadline_valid
+)
 
 
 def get_task(action, DATA):
@@ -42,13 +49,15 @@ def insert_task(DATA):
         print("Inserir Tarefa\n")
 
         description = multiline_input(
-            "Descreva sua tarefa (aperte enter duas vezes seguidas para finalizar): ")
+            "Digite a descrição da tarefa.\n"
+            "Pressione Enter duas vezes para finalizar.\n"
+            "Deixe em branco e pressione Enter para cancelar: "
+        )
         is_valid, error = is_description_valid(description)
         if not is_valid:
-            press_enter_to_continue(error)
-            continue
+            return
 
-        deadline = input("Informe o prazo para concluí-la: ")
+        deadline = input("Informe o prazo para concluí-la (formato DD/MM/AAAA): ")
         is_valid, error = is_deadline_valid(deadline)
         if not is_valid:
             press_enter_to_continue(error)

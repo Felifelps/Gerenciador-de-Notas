@@ -1,11 +1,11 @@
 id,description,status,deadline
-1,Reunião com equipe de marketing,Concluída,06/04/2025
-2,Finalizar relatório trimestral,Iniciada,08/04/2025
-3,Preparar apresentação para diretoria,Pendente,15/04/2025
-4,Revisar metas do projeto X,Cancelada,20/04/2025
-5,Ligar para cliente sobre contrato,Iniciada,25/04/2025
-6,Atualizar planilha de despesas,Concluída,01/04/2025
-7,Enviar proposta comercial,Pendente,30/04/2025
-8,Revisar orçamento anual,Pendente,10/05/2025
-9,Planejar evento corporativo,Iniciada,15/05/2025
-10,Realizar treinamento interno,Concluída,20/05/2025
+1,Estudar conceitos básicos de Python,Concluída,06/04/2025
+2,Resolver exercícios de lógica de programação,Iniciada,08/04/2025
+3,Assistir aula sobre estruturas condicionais,Pendente,15/04/2025
+4,Revisar material de introdução à computação,Cancelada,20/04/2025
+5,Praticar criação de funções em Python,Iniciada,25/04/2025
+6,Organizar anotações sobre tipos de dados,Concluída,01/04/2025
+7,Enviar trabalho sobre algoritmos básicos,Pendente,30/04/2025
+8,Estudar para a prova de matemática discreta,Pendente,10/05/2025
+9,Participar de grupo de estudos de programação,Iniciada,15/05/2025
+10,Ler artigo sobre história da computação,Concluída,20/05/2025
