@@ -7,9 +7,10 @@ ATTRS = {
     'deadline': 'Prazo',
 }
 ATTRS_OPTIONS = {
-    'status': ['Concluída', 'Pendente', 'Iniciada', 'Cancelada']
+    'status': ['Pendente', 'Iniciada', 'Concluída', 'Cancelada']
 }
 CSV_FILE = 'data.csv'
 DATE_FORMAT = '%d/%m/%Y'
 DATE_FORMAT_LABEL = 'DD/MM/AAAA'
+HEADERS = list(ATTRS)
 MAX_TABLE_VALUE_LENGTH = 50

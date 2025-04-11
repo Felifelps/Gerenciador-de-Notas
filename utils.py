@@ -14,15 +14,6 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def multiline_input(prompt):
-    """Implementa um prompt multilinha no terminal."""
-    print(prompt)
-    result = []
-    while line := input():
-        result.append(line)
-    return "\n".join(result)
-
-
 def press_enter_to_continue(message=""):
     """Mostra uma mensagem e pede para o usuário pressionar enter."""
     print(message)
@@ -54,12 +45,11 @@ def is_deadline_valid(deadline):
     if not deadline:
         return False, "O prazo não pode ser vazio"
     try:
-        datetime_obj = datetime.strptime(deadline, DATE_FORMAT)
+        datetime.strptime(deadline, DATE_FORMAT)
     except ValueError:
-        return False, f"O prazo deve ser no formato {DATE_FORMAT_LABEL}"
-    if datetime_obj < datetime.today():
-        return False, f"O prazo não pode ser anterior à data atual"
+        return False, f"O prazo deve ser válida e no formato {DATE_FORMAT_LABEL}. Ex: 11/04/2025"
     return True, None
+
 
 def show_table(DATA, headers, filter_func=lambda _: True, show_n_of_results=True):
     """
@@ -84,7 +74,7 @@ def show_table(DATA, headers, filter_func=lambda _: True, show_n_of_results=True
             elif size > format_sizes[key]:
                 format_sizes[key] = size
             table[key].append(value)
-        
+
         n_of_results += 1
 
     # Exibe os elementos da tabela formatados
@@ -101,7 +91,8 @@ def show_table(DATA, headers, filter_func=lambda _: True, show_n_of_results=True
 
 def format_table_value(value, column_size):
     """Formata uma célula da tabela de acordo com o tamanho da coluna."""
-    value = value.replace('\\n', ' ').replace('\n', ' ')
+    # Caso seja grande demais
     if len(value) > MAX_TABLE_VALUE_LENGTH:
         value = value[:MAX_TABLE_VALUE_LENGTH - 3] + '...'
-    return value + (" " * (column_size - len(value)))
+    spaces = " " * (column_size - len(value))
+    return value + spaces

@@ -48,8 +48,6 @@ def get_filter_options():
         print()
 
         match option:
-            case '0':
-                return {}
             case '1':
                 return {'filter_func': lambda _: True}
             case '2':
@@ -93,6 +91,8 @@ def get_filter_options():
                                   'Concluída', 'Cancelada')
                 filter_key = status_options[int(option) - 4]
                 filter_attr = 'status'
+            case _:
+                return {}
 
         return {
             'filter_func': lambda task: filter_key.lower() in task[filter_attr].lower(),

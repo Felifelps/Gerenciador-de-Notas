@@ -60,9 +60,11 @@ def main():
         except Exception as e:
             print("Um erro ocorreu!", e)
             break
-
     # Salva os dados ao fim do programa
     save_data(DATA)
+
+    print("Até a próxima! ;)")
+
 
 if __name__ == '__main__':
     main()

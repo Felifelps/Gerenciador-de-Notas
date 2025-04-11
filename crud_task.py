@@ -6,7 +6,6 @@ from utils import (
     clear,
     get_option,
     press_enter_to_continue,
-    multiline_input,
     is_description_valid,
     is_deadline_valid
 )
@@ -48,16 +47,21 @@ def insert_task(DATA):
         clear()
         print("Inserir Tarefa\n")
 
-        description = multiline_input(
-            "Digite a descrição da tarefa.\n"
-            "Pressione Enter duas vezes para finalizar.\n"
-            "Deixe em branco e pressione Enter para cancelar: "
-        )
-        is_valid, error = is_description_valid(description)
-        if not is_valid:
+        print("Digite '0' para cancelar.")
+        description = input("Descreva sua tarefa: ")
+        if description == '0':
             return
 
-        deadline = input("Informe o prazo para concluí-la (formato DD/MM/AAAA): ")
+        is_valid, error = is_description_valid(description)
+        if not is_valid:
+            press_enter_to_continue(error)
+            continue
+
+        deadline = input(
+            "Informe o prazo para concluí-la (formato DD/MM/AAAA): ")
+        if deadline == '0':
+            return
+
         is_valid, error = is_deadline_valid(deadline)
         if not is_valid:
             press_enter_to_continue(error)
@@ -100,8 +104,7 @@ def update_task(DATA):
 
         match option:
             case "1":
-                description = multiline_input(
-                    "Digite a nova descrição (finalize com enter 2x): ")
+                description = input("Digite a nova descrição: ")
                 is_valid, error = is_description_valid(description)
                 if not is_valid:
                     press_enter_to_continue(error)
@@ -136,6 +139,10 @@ def remove_task(DATA):
     """Pede um ID válido ao usuário e remove a tarefa correspondente."""
     task = get_task("Remover", DATA)
     if task:
+
+        if input("Quer mesmo deletar? (s/n)").lower() != 's':
+            return press_enter_to_continue("Remoção cancelada")
+
         DATA.remove(task)
         save_data(DATA)
         press_enter_to_continue("Tarefa excluída com sucesso!")
