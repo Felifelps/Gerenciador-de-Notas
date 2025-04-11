@@ -4,23 +4,12 @@ Este é um projeto de gerenciamento de tarefas desenvolvido em Python. Ele permi
 
 ## Funcionalidades
 
-- **Listar Tarefas**: Exibe todas as tarefas com opções de filtragem.
+- **Listar Tarefas**: Exibe todas as tarefas com opções de filtragem (por descrição, prazo ou status).
 - **Buscar Tarefa**: Permite buscar uma tarefa específica pelo ID.
-- **Inserir Tarefa**: Adiciona uma nova tarefa ao sistema.
+- **Inserir Tarefa**: Adiciona uma nova tarefa ao sistema com validações para descrição e prazo.
 - **Atualizar Tarefa**: Edita os dados de uma tarefa existente.
-- **Remover Tarefa**: Exclui uma tarefa do sistema.
-- **Relatório**: Gera um relatório com o status das tarefas (Pendentes, Iniciadas, Concluídas, Canceladas).
-
-## Estrutura do Projeto
-
-- **`main.py`**: Arquivo principal que inicializa o programa.
-- **`constants.py`**: Contém constantes usadas em todo o projeto.
-- **`crud_task.py`**: Funções para criar, buscar, atualizar e remover tarefas.
-- **`list_tasks.py`**: Funções para listar e filtrar tarefas.
-- **`dashboard.py`**: Funções para gerar relatórios.
-- **`data.py`**: Funções para carregar e salvar dados no arquivo CSV.
-- **`utils.py`**: Funções auxiliares como validações e exibição de tabelas.
-- **`data.csv`**: Arquivo que armazena as tarefas.
+- **Remover Tarefa**: Exclui uma tarefa do sistema com confirmação antes da remoção.
+- **Relatório**: Gera um relatório com o status das tarefas (Pendentes, Iniciadas, Concluídas, Canceladas), exibindo categorias vazias de forma clara.
 
 ## Como Usar
 
@@ -32,14 +21,25 @@ Este é um projeto de gerenciamento de tarefas desenvolvido em Python. Ele permi
    ```
 4. Siga as instruções no terminal para gerenciar suas tarefas.
 
+## Estrutura do Projeto
+
+- **`main.py`**: Arquivo principal que inicializa o programa.
+- **`constants.py`**: Contém constantes usadas em todo o projeto.
+- **`crud_task.py`**: Funções para criar, buscar, atualizar e remover tarefas.
+- **`list_tasks.py`**: Funções para listar e filtrar tarefas.
+- **`dashboard.py`**: Funções para gerar relatórios.
+- **`data.py`**: Funções para carregar e salvar dados no arquivo CSV.
+- **`utils.py`**: Funções auxiliares como validações, exibição de tabelas e limpeza do terminal.
+- **`data.csv`**: Arquivo que armazena as tarefas.
+
 ## Formato do Arquivo CSV
 
 O arquivo `data.csv` armazena as tarefas no seguinte formato:
 
 ```
 id,description,status,deadline
-1,Reunião com equipe de marketing,Concluída,06/04/2025
-2,Finalizar relatório trimestral,Iniciada,08/04/2025
+1,Estudar conceitos básicos de Python,Concluída,06/04/2025
+2,Resolver exercícios de lógica de programação,Iniciada,08/04/2025
 ...
 ```
 
@@ -51,6 +51,14 @@ id,description,status,deadline
 ## Requisitos
 
 - Python 3.6 ou superior.
+
+## Melhorias Implementadas
+
+- Adicionada confirmação antes de remover uma tarefa.
+- Mensagens de erro mais claras para entradas inválidas.
+- Relatórios exibem categorias vazias com mensagens apropriadas.
+- Validação aprimorada para prazos no formato correto (`DD/MM/AAAA`).
+- Mensagem amigável exibida ao sair do programa.
 
 ## Autor
 
